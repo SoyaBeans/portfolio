@@ -1,0 +1,22 @@
+{
+  "name": "soyabnandhla",
+  "version": "1.0.0",
+  "description": "A website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.x",
+    "basic-auth": "^2.x",
+    "express-http-to-https": "^1.x"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "keywords": [
+    "site",
+    "soyab",
+    "nandhla"
+  ]
+}
