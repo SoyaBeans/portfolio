@@ -14,27 +14,38 @@ app.use(express.static("public"));
 // PUBLIC PAGES (PUBLIC)
 
 app.get("/", function(request, response) {
-  response.sendFile(__dirname + "/views/home.html");
+  response.sendFile(__dirname + "/public/");
+});
+
+app.get("/#about", function(request, response) {
+  response.sendFile(__dirname + "/public/#about");
+});
+
+app.get("/#experience", function(request, response) {
+  response.sendFile(__dirname + "/public/#experience");
+});
+
+app.get("/#education", function(request, response) {
+  response.sendFile(__dirname + "/public/#education");
+});
+
+app.get("/#projects", function(request, response) {
+  response.sendFile(__dirname + "/public/#projects");
+});
+
+app.get("/#skills", function(request, response) {
+  response.sendFile(__dirname + "/public/#skills");
+});
+
+app.get("/#contact", function(request, response) {
+  response.sendFile(__dirname + "/public/#contact");
+});
+
+app.post("/email", function(request, response) {
+  console.log(req.body);
 });
 
 /*
-app.get("/projects.html", function(request, response) {
-  response.sendFile(__dirname + "/views/projects.html");
-});
-
-app.get("/contact.html", function(request, response) {
-  response.sendFile(__dirname + "/views/contact.html");
-});
-
-// PROJECT PAGES (LINKED)
-
-app.get("/projects/clickproject.html", function(request, response) {
-  response.sendFile(__dirname + "/projects/clickproject.html");
-});
-
-app.get("/projects/idlegame.html", function(request, response) {
-  response.sendFile(__dirname + "/projects/idlegame.html");
-});
 
 // DOWNLOAD (CLICKPROJECT)
 
@@ -59,30 +70,9 @@ app.get("/CV20", function(request, response) {
   );
 });
 
-/*
-
-// PRIVATE PAGES (AUTH REQUIRED)
-
-var CVUser = "Guest";
-var CVPass = process.env.CVPASS;
-
-var LOGUser = "Logger";
-var LOGPass = process.env.LOGPASS;
-
-var basicAuth = require("basic-auth");
-app.get("/portfolio.html", function(request, response) {
-  var user = basicAuth(request);
-  if (!user || user.name !== CVUser || user.pass !== CVPass) {
-    response.set("WWW-Authenticate", 'Basic realm="site"');
-    return response.status(401).sendFile(__dirname + "/errors/err401.html");
-  }
-  return response.sendFile(__dirname + "/views/portfolio.html");
-});
-
 app.use(function(request, response) {
-  response.status(404).sendFile(__dirname + "/errors/err404.html");
+  response.sendStatus(404);
 });
-*/
 
 const listener = app.listen(5000, function() {
   console.log("Your app is listening on port " + listener.address().port);
